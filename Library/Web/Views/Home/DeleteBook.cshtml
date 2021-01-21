@@ -1,0 +1,57 @@
+﻿
+
+
+@{
+    ViewBag.Title = "删除书籍";
+}
+@using Library.Model
+@model Library.Model.Book
+
+@{
+    Book book = ViewBag.book == null ? new Book() : (Book)ViewBag.book;
+}
+
+<h2>请确认书籍信息后，点击删除按钮</h2>
+<br />
+<table class="table table-sm table-hover lh34">
+    <tbody>
+        <tr>
+            <td>书名</td>
+            <td>@book.name</td>
+        </tr>
+        <tr>
+            <td>作者</td>
+            <td>@book.author</td>
+        </tr>
+        <tr>
+            <td>出版社</td>
+            <td>@book.publish</td>
+        </tr>
+        <tr>
+            <td>价格</td>
+            <td>@book.price</td>
+        </tr>
+        <tr>
+            <td>录入日期</td>
+            <td>@book.date</td>
+        </tr>
+        <tr>
+            <td>ISBN</td>
+            <td>@book.isbn</td>
+        </tr>
+        <tr>
+            <td>封面</td>
+            <td>
+                <a href="@book.cover" target="_blank" rel="noreferrer">点击查看</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div>
+
+    <form action="/Home/BookOperation" method="post">
+        <input type="hidden" value="delete" name="type" />
+        <input type="hidden" value="@book.id" name="id" />
+        <button type="submit" class="btn btn-primary">确认删除</button>
+    </form>
+</div>

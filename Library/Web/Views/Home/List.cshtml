@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "书籍列表";
+}
+@using Library.Model
+@model Library.Model.Book
+<h2>书籍列表</h2>
+
+<div>
+    <a href="/Home/AddBook">
+        <button type="button" class="btn btn-primary btn-sm">
+            录入书籍
+        </button>
+    </a>
+</div>
+
+<div>
+    <table class="table table-sm table-hover lh34">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">书名</th>
+                <th scope="col">作者</th>
+                <th scope="col">出版社</th>
+
+                <th scope="col">价格</th>
+                <th scope="col">录入日期</th>
+                <th scope="col">ISBN</th>
+                <th scope="col">封面</th>
+
+                <th scope="col">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Book book in (List<Book>)ViewBag.books)
+            {
+                <tr>
+                    <td scope="row">@book.id</td>
+                    <td>
+                        @if (String.IsNullOrEmpty(book.name))
+                        {
+                            <span>-</span>
+                        }
+                        @if (!String.IsNullOrEmpty(book.name))
+                        {
+                            <span>@book.name</span>
+                        }
+                    </td>
+                    <td>
+                        @if (String.IsNullOrEmpty(book.author))
+                        {
+                            <span>-</span>
+                        }
+                        @if (!String.IsNullOrEmpty(book.author))
+                        {
+                            <span>@book.author</span>
+                        }
+                    </td>
+                    <td>
+                        @if (String.IsNullOrEmpty(book.publish))
+                        {
+                            <span>-</span>
+                        }
+                        @if (!String.IsNullOrEmpty(book.publish))
+                        {
+                            <span>@book.publish</span>
+                        }
+                    </td>
+                    <td>
+                        @(book.price == null ? "-": String.Format("￥{0:N2} ", book.price))
+                    </td>
+                    <td>
+                        @if (String.IsNullOrEmpty(book.date))
+                        {
+                            <span>-</span>
+                        }
+                        @if (!String.IsNullOrEmpty(book.date))
+                        {
+                            <span>@book.date</span>
+                        }
+                    </td>
+                    <td>
+                        @if (String.IsNullOrEmpty(book.isbn))
+                        {
+                            <span>-</span>
+                        }
+                        @if (!String.IsNullOrEmpty(book.isbn))
+                        {
+                            <span>@book.isbn</span>
+                        }
+                    </td>
+                    <td>
+                        @if (String.IsNullOrEmpty(book.cover))
+                        {
+                            <span>-</span>
+                        }
+                        @if (!String.IsNullOrEmpty(book.cover))
+                        {
+                            <a href="@book.cover" target="_blank" rel="noreferrer">点击查看</a>
+                        }
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-link">
+                            @Html.ActionLink("编辑", "EditBook", new { id = book.id }, null)
+                        </button>
+                        |
+                        <button type="button" class="btn btn-link">
+                            @Html.ActionLink("删除", "DeleteBook", new { id = book.id }, null)
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

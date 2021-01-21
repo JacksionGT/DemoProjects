@@ -1,0 +1,45 @@
+﻿
+
+@{
+    ViewBag.Title = "修改书籍信息";
+}
+@using Library.Model
+@model Library.Model.Book
+
+@{ 
+    Book book = ViewBag.book ==null ? new Book() : (Book)ViewBag.book;
+}
+
+<h2>修改书籍信息</h2>
+<br />
+<form action="/Home/BookOperation" method="post">
+    <input type="hidden" value="edit" name="type" />
+    <input type="hidden" value="@book.id" name="id" />
+    <div class="form-group">
+        <label for="name">书名</label>
+        <input autocomplete="off" type="text" class="form-control" id="name" name="name" value="@book.name">
+    </div>
+    <div class="form-group">
+        <label for="author">作者</label>
+        <input autocomplete="off" type="text" class="form-control" id="author" name="author" value="@book.author">
+    </div>
+    <div class="form-group">
+        <label for="publish">出版社</label>
+        <input autocomplete="off" type="text" class="form-control" id="publish" name="publish" value="@book.publish">
+    </div>
+    <div class="form-group">
+        <label for="price">价格</label>
+        <input autocomplete="off" type="number" min="0"  step="0.1" class="form-control" id="price" name="price" value="@book.price">
+    </div>
+    <div class="form-group">
+        <label for="isbn">ISBN</label>
+        <input autocomplete="off" type="text" class="form-control" id="isbn" name="isbn" value="@book.isbn">
+    </div>
+    <div class="form-group">
+        <label for="cover">封面</label>
+        <input autocomplete="off" type="text" class="form-control" id="cover" name="cover" value="@book.cover">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+@*id,name,author,publish,price,date,isbn,cover*@
