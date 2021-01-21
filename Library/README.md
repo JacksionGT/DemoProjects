@@ -7,10 +7,13 @@
 因为是Demo且数据量不大，使用了SQLite数据库
 开发语言：C#
 
-# Action link
+## Razor语法 Action link
 @Html.ActionLink("编辑", "EditBook", new { id = book.id }, null)
+
 http://localhost:4894/Home/EditBook/1
 
 
+
 @Html.ActionLink("编辑", "EditBook", new { id = book.id, bookid = book.id }, null)
+
 http://localhost:4894/Home/EditBook/1?bookid=1
