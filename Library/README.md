@@ -7,6 +7,8 @@
 因为是Demo且数据量不大，使用了SQLite数据库
 开发语言：C#
 
+[预览网址](https://book.ink-lotus.ink/)
+
 ## Razor语法 Action link
 @Html.ActionLink("编辑", "EditBook", new { id = book.id }, null)
 
