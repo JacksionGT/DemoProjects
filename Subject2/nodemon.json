@@ -1,0 +1,17 @@
+{
+    "execMap": {
+        "": "node",
+        "js": "babel-node"
+    },
+    "ignore": [
+        "*.test.js",
+        "fixtures/*",
+        "node_modules/**/node_modules"
+    ],
+    "watch": [
+        "Views/**/*.html"
+    ],
+    "env": {
+        "NODE_ENV": "development"
+    }
+}

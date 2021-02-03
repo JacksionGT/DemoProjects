@@ -1,0 +1,70 @@
+{% extends '../Shared/Layout.html' %}
+{% block title %} 书籍列表 {% endblock %}
+{% block content %}
+<h2>书籍列表</h2>
+
+<div>
+    <a href="/Home/AddBook">
+        <button type="button" class="btn btn-primary btn-sm">
+            录入书籍
+        </button>
+    </a>
+</div>
+
+<div>
+    <table class="table table-sm table-hover lh34">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">书名</th>
+                <th scope="col">作者</th>
+                <th scope="col">出版社</th>
+
+                <th scope="col">价格</th>
+                <th scope="col">录入日期</th>
+                <th scope="col">ISBN</th>
+                <th scope="col">封面</th>
+
+                <th scope="col">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in data %}
+                <tr>
+                    <td scope="row">2</td>
+                    <td>
+                        {{ book.name }}
+                    </td>
+                    <td>
+                        {{ book.author }}
+                    </td>
+                    <td>
+                        {{ book.publish }}
+                    </td>
+                    <td>
+                        {{ book.price }}
+                    </td>
+                    <td>
+                        {{ book.date }}
+                    </td>
+                    <td>
+                        {{ book.isbn }}
+                    </td>
+                    <td>
+                        {{ book.cover }}
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-link">
+                            <a href="/Home/EditBook/2">编辑</a>
+                        </button>
+                        |
+                        <button type="button" class="btn btn-link">
+                            <a href="/Home/DeleteBook/2">删除</a>
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}- 小书馆</title>
+    <link rel="stylesheet" href="/css/site.css">
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">小书馆</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">欢迎使用</a></li>
+                    <li><a href="/Home/List">书籍列表</a></li>
+                    <li><a href="/Home/AddBook">录入书籍</a></li>
+                    <li><a href="/Home/About">关于小书馆</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        {% block content %}{% endblock %}
+        <hr />
+        <footer>
+            <p>&copy; 2021 - 小书馆</p>
+        </footer>
+    </div>
+</body>
+</html>
