@@ -1,4 +1,5 @@
 {
+    "verbose": true,
     "execMap": {
         "": "node",
         "js": "babel-node"
@@ -9,9 +10,13 @@
         "node_modules/**/node_modules"
     ],
     "watch": [
-        "Views/**/*.html"
+        "Views"
     ],
     "env": {
         "NODE_ENV": "development"
-    }
+    },
+    "events": {
+        "restart": "echo \" ------------- \""
+    },
+    "ext": "js,json,html,css"
 }

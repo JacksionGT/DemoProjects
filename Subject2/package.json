@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "set NODE_ENV=dev && nodemon app.js --config nodemon.json",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "babel": "babel-node ./app.js"
+    "start": "set NODE_ENV=dev && nodemon app.js --config nodemon.json",
+    "build": "babel ./app.js -d dist --source-maps",
+    "babel": "babel-node ./app.js",
+    "dev": "nodemon --exec babel-node app.js --config nodemon.json"
   },
   "keywords": [],
   "author": "",
@@ -16,10 +18,13 @@
     "axios": "^0.21.1",
     "co": "^4.6.0",
     "koa": "^2.9.0",
+    "koa-body": "^4.2.0",
     "koa-static": "^5.0.0",
-    "koa-swig": "^2.2.1"
+    "koa-swig": "^2.2.1",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.13.16",
     "@babel/core": "^7.12.13",
     "@babel/node": "^7.12.13",
     "@babel/preset-env": "^7.12.13"

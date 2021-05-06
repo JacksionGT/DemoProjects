@@ -1,0 +1,40 @@
+{% extends '../Shared/Layout.html' %}
+{% block title %} 录入书籍 {% endblock %}
+
+{% block content %}
+<h2>添加书籍</h2>
+<br />
+<h4>请填写书籍相关信息</h4>
+<br />
+<form action="/Home/BookOperation" method="post">
+
+    <input type="hidden" value="add" name="type" />
+    <div class="form-group">
+        <label for="name">书名</label>
+        <input autocomplete="off" type="text" class="form-control" id="name" name="name">
+    </div>
+    <div class="form-group">
+        <label for="author">作者</label>
+        <input autocomplete="off" type="text" class="form-control" id="author" name="author">
+    </div>
+    <div class="form-group">
+        <label for="publish">出版社</label>
+        <input autocomplete="off" type="text" class="form-control" id="publish" name="publish">
+    </div>
+    <div class="form-group">
+        <label for="price">价格</label>
+        <input autocomplete="off" type="number" min="0"  step="0.1" class="form-control" id="price" name="price">
+    </div>
+    <div class="form-group">
+        <label for="isbn">ISBN</label>
+        <input autocomplete="off" type="text" class="form-control" id="isbn" name="isbn">
+    </div>
+    <div class="form-group">
+        <label for="cover">封面</label>
+        <input autocomplete="off" type="text" class="form-control" id="cover" name="cover">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<!-- @*id,name,author,publish,price,date,isbn,cover*@ -->
+{% endblock %}

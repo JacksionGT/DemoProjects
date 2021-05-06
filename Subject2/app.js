@@ -1,13 +1,15 @@
 import Koa from 'koa';
-import config from './Config';
-import registerController from './Controller';
+import koaBody from 'koa-body';
 import render from 'koa-swig';
 import path from 'path';
 import co from 'co';
 import serve from 'koa-static';
 
-const app = new Koa();
+import config from './Config';
+import registerController from './Controller';
 
+const app = new Koa();
+app.use(koaBody());
 app.use(serve(__dirname + '/assets'));
 
 registerController(app);

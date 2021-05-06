@@ -8,12 +8,13 @@
             "type": "node",
             "request": "launch",
             "name": "启动程序",
-            "sourceMaps": true,
-            "runtimeExecutable": "${workspaceRoot}\\Subject2\\node_modules\\.bin\\babel-node",
-            "program": "${workspaceFolder}\\Subject2\\app.js",
-            "env": {
-                "BABEL_ENV": "debug"
-            }
+            "protocol": "inspector",
+            "skipFiles": [
+                "<node_internals>/**",
+                "${workspaceRoot}/node_modules/**/*.js",
+            ],
+            "runtimeExecutable": "${workspaceRoot}/Subject2/node_modules/.bin/babel-node",
+            "program": "${workspaceFolder}/Subject2/app.js"
         }
     ]
 }
